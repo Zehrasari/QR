@@ -9,31 +9,23 @@
     <!-- Quicksand Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        html {
-            box-sizing: border-box;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
         body {
-            background: linear-gradient(135deg, #bbb7c6 0%, #db97c9 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            font-family: 'Quicksand', Arial, sans-serif;
-            line-height: 1.5;
-            letter-spacing: 0.01em;
-            margin: 0;
-            padding: 0;
+            background: linear-gradient(135deg, #bbb7c6 0%, #f7bee8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Quicksand', Arial, sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
         }
         .main-card {
             background: #fff;
             border-radius: 30px;
             box-shadow: 0 6px 32px rgba(0,0,0,0.08);
-            margin: 40px 16px 24px 16px; /* Eşit boşluklar */
+            margin-top: 60px;
             width: 100%;
-            max-width: 420px;
+            max-width: 800px;
             position: relative;
             padding-bottom: 16px;
         }
@@ -63,7 +55,7 @@
             text-align: center;
         }
         .header h1 {
-            font-size: 1.3rem;
+            font-size: 1.55rem;
             font-weight: 700;
             color: #222;
             margin-bottom: 8px;
@@ -99,9 +91,6 @@
             border-top: 1px solid #eee;
             margin: 18px 0 14px 0;
         }
-        .content {
-            padding: 0 18px;
-        }
         .list-group {
             display: flex;
             flex-direction: column;
@@ -113,7 +102,7 @@
             border: none;
             border-radius: 8px;
             padding: 14px 18px;
-            font-size: 1.08rem;
+            font-size: 1.15rem;
             color: #333;
             display: flex;
             align-items: center;
@@ -172,42 +161,11 @@
         }
         @media (max-width: 600px) {
             .main-card {
-                margin: 24px 6px 12px 6px;
-                border-radius: 16px;
-                max-width: 100vw;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                margin-top: 30px;
+                border-radius: 0;
             }
             .header {
                 padding-top: 50px;
-            }
-            .content {
-                padding: 0 6px;
-            }
-            .logo-circle {
-                width: 70px;
-                height: 70px;
-                top: -35px;
-            }
-            .logo-circle img {
-                width: 70px;
-                height: 70px;
-            }
-            .list-btn {
-                padding: 12px 10px;
-                font-size: 0.98rem;
-            }
-            .law-info {
-                padding: 10px 10px;
-                font-size: 0.97rem;
-            }
-            #qrcode {
-                width: 120px !important;
-                height: 120px !important;
-            }
-        }
-        @media (max-width: 400px) {
-            .main-card {
-                margin: 0 2px;
             }
         }
     </style>
@@ -215,6 +173,7 @@
 <body>
     <div class="main-card">
         <div class="logo-circle">
+            <!-- Logo resmi eklenmiş hali -->
             <img src="https://placehold.co/70x70/f6e4f6/442844?text=Kadına+Destek" alt="Kadına Destek Logosu">
         </div>
         <div class="header">
@@ -230,7 +189,7 @@
             </div>
         </div>
         <hr class="divider">
-        <div class="content">
+        <div class="content" style="padding:0 22px;">
             <div class="list-group">
                 <button class="list-btn" onclick="window.open('https://www.morcati.org.tr/', '_blank')">
                     <i class="fa-solid fa-globe"></i>
@@ -255,23 +214,12 @@
             </div>
             <div class="qr-section">
                 <div id="qrcode"></div>
+            
             </div>
         </div>
         <div class="footer">
             Kadına yönelik şiddetle mücadele için hazırlanmıştır
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            new QRCode(document.getElementById("qrcode"), {
-                text: "KADIN DESTEK HATTI BİLGİLENDİRME\n\n- Kadın Destek Hattı: 183 (ALO 183)\n- Acil Yardım: 112\n- Mor Çatı: https://www.morcati.org.tr/\n- KADES Uygulaması: https://www.kades.gov.tr/\n\n6284 Sayılı Kanun: Ailenin Korunması ve Kadına Karşı Şiddetin Önlenmesine Dair Kanun\nKadına Yönelik Şiddet Karşısında Yasal Haklarımız",
-                width: 160,
-                height: 160,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        });
-    </script>
 </body>
 </html>
