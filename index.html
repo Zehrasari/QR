@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kadın Destek Hattı </title>
+    <title>Kadın Destek Hattı</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Quicksand Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             background: linear-gradient(135deg, #bbb7c6 0%, #f7bee8 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: 'Quicksand', Arial, sans-serif;
-    line-height: 1.5;
-    letter-spacing: 0.01em;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'Quicksand', Arial, sans-serif;
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+            padding: 20px;
         }
+        
         .main-card {
             background: #fff;
             border-radius: 30px;
             box-shadow: 0 6px 32px rgba(0,0,0,0.08);
-            margin-top: 60px;
             width: 100%;
             max-width: 800px;
             position: relative;
-            padding-bottom: 16px;
+            padding: 0 0 20px 0;
+            margin-top: 60px;
         }
+        
         .logo-circle {
             width: 90px;
             height: 90px;
@@ -44,27 +53,32 @@
             border: 6px solid #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
+        
         .logo-circle img {
             width: 90px;
             height: 90px;
             border-radius: 50%;
             object-fit: cover;
         }
+        
         .header {
-            padding-top: 60px;
+            padding: 60px 20px 0;
             text-align: center;
         }
+        
         .header h1 {
             font-size: 1.55rem;
             font-weight: 700;
             color: #222;
             margin-bottom: 8px;
         }
+        
         .header p {
             color: #666;
             font-size: 1rem;
             margin-bottom: 18px;
         }
+        
         .hotlines {
             display: flex;
             flex-direction: column;
@@ -73,6 +87,7 @@
             margin: 0 auto 18px auto;
             max-width: 340px;
         }
+        
         .hotline {
             color: #c0398f;
             font-size: 1.08rem;
@@ -83,20 +98,28 @@
             transition: color 0.2s;
             text-decoration: none;
         }
+        
         .hotline:hover {
             color: #8e44ad;
         }
+        
         .divider {
             border: none;
             border-top: 1px solid #eee;
-            margin: 18px 0 14px 0;
+            margin: 18px 20px 14px;
         }
+        
+        .content {
+            padding: 0 20px;
+        }
+        
         .list-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
             margin-bottom: 18px;
         }
+        
         .list-btn {
             background: #f8f9fa;
             border: none;
@@ -114,25 +137,30 @@
             gap: 10px;
             font-weight: 500;
         }
+        
         .list-btn .btn-text {
             flex: 1;
             text-align: left;
             display: block;
             font-family: 'Quicksand', Arial, sans-serif;
         }
+        
         .list-btn .fa-arrow-right {
             color: #aaa;
             font-size: 1.1rem;
             margin-left: auto;
         }
+        
         .list-btn:hover {
             background: #f0e6f7;
         }
+        
         .list-btn .fa-globe {
             color: #4b7bec;
             font-size: 1.2rem;
             margin-right: 8px;
         }
+        
         .law-info {
             background: #f8f9fa;
             border-radius: 8px;
@@ -141,10 +169,12 @@
             color: #333;
             margin-bottom: 10px;
         }
+        
         .qr-section {
             text-align: center;
             margin-top: 18px;
         }
+        
         #qrcode {
             display: inline-block;
             background: #fff;
@@ -153,19 +183,126 @@
             margin-bottom: 10px;
             padding: 8px;
         }
+        
         .footer {
             text-align: center;
             color: #888;
             font-size: 0.97rem;
             margin-top: 10px;
+            padding: 0 20px;
         }
-        @media (max-width: 600px) {
-            .main-card {
-                margin-top: 30px;
-                border-radius: 0;
+        
+        /* Tablet boyutu (768px ve altı) */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
             }
+            
+            .main-card {
+                margin-top: 50px;
+                border-radius: 25px;
+            }
+            
             .header {
-                padding-top: 50px;
+                padding: 50px 15px 0;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .content {
+                padding: 0 15px;
+            }
+            
+            .list-btn {
+                font-size: 1.1rem;
+                padding: 12px 15px;
+            }
+        }
+        
+        /* Telefon boyutu (600px ve altı) */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+            }
+            
+            .main-card {
+                margin-top: 40px;
+                border-radius: 20px;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                top: -40px;
+            }
+            
+            .logo-circle img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .header {
+                padding: 50px 15px 0;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header p {
+                font-size: 0.95rem;
+            }
+            
+            .hotline {
+                font-size: 1rem;
+            }
+            
+            .divider {
+                margin: 18px 15px 14px;
+            }
+            
+            .content {
+                padding: 0 15px;
+            }
+            
+            .list-btn {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+            
+            .footer {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Küçük telefon boyutu (400px ve altı) */
+        @media (max-width: 400px) {
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .hotline {
+                font-size: 0.95rem;
+            }
+            
+            .list-btn {
+                font-size: 0.95rem;
+                padding: 10px 12px;
+            }
+            
+            .list-btn .fa-globe {
+                font-size: 1.1rem;
+            }
+            
+            .list-btn .fa-arrow-right {
+                font-size: 1rem;
             }
         }
     </style>
@@ -189,7 +326,7 @@
             </div>
         </div>
         <hr class="divider">
-        <div class="content" style="padding:0 22px;">
+        <div class="content">
             <div class="list-group">
                 <button class="list-btn" onclick="window.open('https://www.morcati.org.tr/', '_blank')">
                     <i class="fa-solid fa-globe"></i>
@@ -214,12 +351,12 @@
             </div>
             <div class="qr-section">
                 <div id="qrcode"></div>
-            
             </div>
         </div>
         <div class="footer">
             Kadına yönelik şiddetle mücadele için hazırlanmıştır
         </div>
     </div>
+
 </body>
 </html>
