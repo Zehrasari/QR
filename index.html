@@ -11,13 +11,15 @@
     <style>
         body {
             background: linear-gradient(135deg, #bbb7c6 0%, #f7bee8 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: 'Quicksand', Arial, sans-serif;
-    line-height: 1.5;
-    letter-spacing: 0.01em;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: 'Quicksand', Arial, sans-serif;
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+            margin: 0;
+            padding: 0;
         }
         .main-card {
             background: #fff;
@@ -159,13 +161,50 @@
             font-size: 0.97rem;
             margin-top: 10px;
         }
+        /* Responsive düzenlemeler */
+        @media (max-width: 900px) {
+            .main-card {
+                max-width: 98vw;
+            }
+        }
         @media (max-width: 600px) {
             .main-card {
-                margin-top: 30px;
+                margin-top: 24px;
                 border-radius: 0;
+                max-width: 100vw;
+                box-shadow: none;
             }
             .header {
                 padding-top: 50px;
+            }
+            .content {
+                padding: 0 6px !important;
+            }
+            .logo-circle {
+                width: 70px;
+                height: 70px;
+                top: -35px;
+            }
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+            .list-btn {
+                padding: 12px 10px;
+                font-size: 1rem;
+            }
+            .law-info {
+                padding: 10px 10px;
+                font-size: 0.97rem;
+            }
+            #qrcode {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        }
+        @media (max-width: 400px) {
+            .main-card {
+                margin-top: 0;
             }
         }
     </style>
@@ -206,7 +245,7 @@
                     <span class="btn-text">6284 Sayılı Ailenin Korunması ve Kadına Karşı Şiddetin Önlenmesine Dair Kanun (20.03.2012)</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button class="list-btn" onclick="window.open('https://www.kadindayanismavakfi.org.tr/wp-content/uploads/2021/06/2018-Kadina-Yonelik-Siddet-Karsisinda-Yasal-Haklarimiz-2018.pdf?utm_source=chatgpt.com', '_blank')">
+                <button class="list-btn" onclick="window.open('https://www.kadindayanismavakfi.org.tr/wp-content/uploads/2021/06/2018-Kadina-Yonelik-Siddet-Karsisinda-Yasal-Haklarimiz-2018.pdf?utm_source', '_blank')">
                     <i class="fa-solid fa-globe"></i>
                     <span class="btn-text">Kadına Yönelik Şiddet Karşısında Yasal Haklarımız</span>
                     <i class="fa-solid fa-arrow-right"></i>
@@ -214,12 +253,23 @@
             </div>
             <div class="qr-section">
                 <div id="qrcode"></div>
-            
             </div>
         </div>
         <div class="footer">
             Kadına yönelik şiddetle mücadele için hazırlanmıştır
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "KADIN DESTEK HATTI BİLGİLENDİRME\n\n- Kadın Destek Hattı: 183 (ALO 183)\n- Acil Yardım: 112\n- Mor Çatı: https://www.morcati.org.tr/\n- KADES Uygulaması: https://www.kades.gov.tr/\n\n6284 Sayılı Kanun: Ailenin Korunması ve Kadına Karşı Şiddetin Önlenmesine Dair Kanun\nKadına Yönelik Şiddet Karşısında Yasal Haklarımız",
+                width: 160,
+                height: 160,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+    </script>
 </body>
 </html>
